@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Code } from '@domain/code';
+import { OverlayOptions } from 'primeng/api';
 
 @Component({
     selector: 'dropdown-template-demo',
@@ -11,7 +12,7 @@ import { Code } from '@domain/code';
             </p>
         </app-docsectiontext>
         <div class="card flex justify-content-center">
-            <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [showClear]="true" placeholder="Select a country">
+            <p-dropdown [options]="countries" [overlayOptions]="overlayOptions" [(ngModel)]="selectedCountry" optionLabel="name" [showClear]="true" placeholder="Select a country">
                 <ng-template pTemplate="selectedItem" let-selectedOption>
                     <div class="flex align-items-center gap-2" *ngIf="selectedOption">
                         <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + selectedOption.code.toLowerCase()" style="width: 18px" />
@@ -34,9 +35,16 @@ export class TemplateDoc implements OnInit {
 
     selectedCountry: string | undefined;
 
+    overlayOptions: OverlayOptions = {
+        calculateMaxWidth: 2
+    };
+
     ngOnInit() {
         this.countries = [
-            { name: 'Australia', code: 'AU' },
+            {
+                name: 'Australiaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaa',
+                code: 'AU'
+            },
             { name: 'Brazil', code: 'BR' },
             { name: 'China', code: 'CN' },
             { name: 'Egypt', code: 'EG' },
